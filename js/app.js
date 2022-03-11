@@ -54,7 +54,7 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
   const image = post.userImage;
-  console.log(image);
+  // console.log(image);
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
@@ -146,6 +146,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  document.getElementById("liked").innerHTML = "";
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
     const div = createPost(post);
@@ -154,8 +155,9 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+  document.getElementById("reported").innerHTML = "";
   const reportedPosts = getReportedPosts();
-  reportedPosts.textContent = "";
+  // reportedPosts.textContent = "";
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
