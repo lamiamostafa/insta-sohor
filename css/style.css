@@ -244,6 +244,9 @@ img {
 #reported{
   display: none;
 }
+.pStyle{
+  text-align: justify;
+}
 
 @media only screen and (max-width: 992px) {
   #posts {
