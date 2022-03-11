@@ -28,7 +28,7 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-  console.log(text);
+
   return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
@@ -135,7 +135,7 @@ const createPost = (post) => {
 };
 
 const showPosts = (posts) => {
-  // console.log(posts);
+
   const productsContainer = document.getElementById("posts");
   productsContainer.innerHTML = "";
 
@@ -157,7 +157,6 @@ const displayLikedPosts = () => {
 const displayReportedPosts = () => {
   document.getElementById("reported").innerHTML = "";
   const reportedPosts = getReportedPosts();
-  // reportedPosts.textContent = "";
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
