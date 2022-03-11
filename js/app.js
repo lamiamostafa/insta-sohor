@@ -24,6 +24,7 @@ const reportPost = (id) => {
   reportedPostsId.push(id);
   const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
   showPosts(remainingPosts);
+
 };
 
 const displayContent = (text) => {
@@ -51,7 +52,8 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  const image = post.image;
+  const image = post.userImage;
+  console.log(image);
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
@@ -76,7 +78,7 @@ const createPost = (post) => {
                 <div class="post__medias">
                   <img
                     class="post__media"
-                    src="${image}"
+                    src="${post.image}"
                     alt="Post Content"
                   />
                 </div>
@@ -132,6 +134,7 @@ const createPost = (post) => {
 };
 
 const showPosts = (posts) => {
+  // console.log(posts);
   const productsContainer = document.getElementById("posts");
   productsContainer.innerHTML = "";
 
@@ -151,7 +154,8 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.textContent = '';
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
